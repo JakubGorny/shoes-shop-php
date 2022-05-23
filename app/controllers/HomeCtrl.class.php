@@ -11,13 +11,13 @@ class HomeCtrl {
     
     public function action_home() {
 		        
-        $variable = 321;
+        $title = "Best shoes in your neighbourhood";
         
         App::getMessages()->addMessage(new Message("Buy your shoes now", Message::INFO));
         Utils::addInfoMessage("Or stop this cringe bro");
-        
-        App::getSmarty()->assign("value",$variable);        
-        App::getSmarty()->display("Home.tpl");
+        ;   
+        App::getSmarty()->assign("slogan",$title);     
+        App::getSmarty()->display("index.tpl");
         
     }
     
