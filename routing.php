@@ -8,3 +8,4 @@ App::getRouter()->setDefaultRoute('home'); #default action
 
 Utils::addRoute('home', 'HomeCtrl');
 //Utils::addRoute('action_name', 'controller_class_name');
+Utils::addRoute('loginView', 'LoginCtrl');
