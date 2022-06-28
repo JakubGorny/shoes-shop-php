@@ -62,12 +62,8 @@ class LoginCtrl {
 //        }
         try {
             $this->records = App::getDB()->query("
-                SELECT client_id,login, password, r.name
-                FROM users us
-                INNER JOIN users_role ur
-                ON ur.user_id = us.client_id
-                INNER JOIN role r
-                ON ur.role_id = r.role_id
+                SELECT *
+                FROM user us
                 WHERE us.login LIKE :login", [
                 ":login" => $this->form->login
                 ])->fetchAll();
@@ -89,12 +85,12 @@ class LoginCtrl {
             Utils::addErrorMessage('Podano niepoprawne hasło');
             return false;
         }
-        if ($this->records["0"]["name"] == "admin") {
+        if ($this->records["0"]["role"] == 100) {
             RoleUtils::addRole('admin');
-        } else  if ($this->records["0"]["name"] == "worker") {
+        } else  if ($this->records["0"]["role"] == 70) {
             RoleUtils::addRole('worker');
         }
-            else  if ($this->records["0"]["name"] == "user") {
+            else  if ($this->records["0"]["role"] == 10) {
                 RoleUtils::addRole('user');
         } else {
             Utils::addErrorMessage('Niepoprawny login lub hasło');
@@ -111,7 +107,7 @@ class LoginCtrl {
         if ($this->validate()) {
             //zalogowany => przekieruj na główną akcję (z przekazaniem messages przez sesję)
             Utils::addErrorMessage('Poprawnie zalogowano do systemu');
-            $id = $this->records["0"]["client_id"];
+            $id = $this->records["0"]["user_id"];
             SessionUtils::store('logged_user',$id);
             App::getRouter()->redirectTo("home");
         } else {

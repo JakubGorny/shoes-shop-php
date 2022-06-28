@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-06-27 17:20:11
+/* Smarty version 4.1.0, created on 2022-06-28 22:21:43
   from 'X:\XAMPP 7.4\htdocs\shoes-shop-php\app\views\Login.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_62b9caabce24b4_60460088',
+  'unifunc' => 'content_62bb62d71f8dc1_98990732',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '40f422a5eedf381b426e2619f46d5615699395b1' => 
     array (
       0 => 'X:\\XAMPP 7.4\\htdocs\\shoes-shop-php\\app\\views\\Login.tpl',
-      1 => 1656343209,
+      1 => 1656447664,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62b9caabce24b4_60460088 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62bb62d71f8dc1_98990732 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_57339873362b9caabcd9e93_86102686', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_178395102762bb62d71b18c7_81706736', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'content'} */
-class Block_57339873362b9caabcd9e93_86102686 extends Smarty_Internal_Block
+class Block_178395102762bb62d71b18c7_81706736 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_57339873362b9caabcd9e93_86102686',
+    0 => 'Block_178395102762bb62d71b18c7_81706736',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -67,7 +67,7 @@ login" method="post">
                 <!-- Register buttons -->
                 <div class="text-center">
                     <p>Not a member? <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-signUp">Register</a></p>
+registerView">Register</a></p>
                     <p>or sign up with:</p>
                 </div>
             </form>
