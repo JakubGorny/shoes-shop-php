@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-06-28 21:37:04
+/* Smarty version 4.1.0, created on 2022-09-26 16:34:25
   from 'X:\XAMPP 7.4\htdocs\shoes-shop-php\app\views\Home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_62bb58606f7e50_01548819',
+  'unifunc' => 'content_6331b871ba1509_03478817',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '78fd5469699e45d1a151ec9c2d1be68715b0cdc1' => 
     array (
       0 => 'X:\\XAMPP 7.4\\htdocs\\shoes-shop-php\\app\\views\\Home.tpl',
-      1 => 1656346377,
+      1 => 1664202859,
       2 => 'file',
     ),
   ),
@@ -20,22 +20,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62bb58606f7e50_01548819 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6331b871ba1509_03478817 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_82166928962bb5860645797_27105562', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2865693436331b871b99977_13111573', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'content'} */
-class Block_82166928962bb5860645797_27105562 extends Smarty_Internal_Block
+class Block_2865693436331b871b99977_13111573 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_82166928962bb5860645797_27105562',
+    0 => 'Block_2865693436331b871b99977_13111573',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -58,7 +58,7 @@ itemView/<?php echo $_smarty_tpl->tpl_vars['p']->value['product_id'];?>
  zł</div></div><!-- Product actions--><form action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 addToCart/<?php echo $_smarty_tpl->tpl_vars['p']->value['product_id'];?>
 " method="post"><div class="card-footer p-4 pt-0 border-top-0 bg-transparent"><div class="text-center"><button class="btn btn-outline-dark mt-auto" type="submit">Add to cart</button></div></div><input type="text" name="item_name" hidden value="<?php echo $_smarty_tpl->tpl_vars['p']->value["name"];?>
-"><input type="text" name="price" hidden value="<?php echo $_smarty_tpl->tpl_vars['p']->value["prize"];?>
+"><input type="text" name="price" hidden value="<?php echo $_smarty_tpl->tpl_vars['p']->value["price"];?>
 "><input type="text" name="quantity" hidden value=1></form></div></div>
                     <!-- <?php
 }
