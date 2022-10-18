@@ -9,6 +9,16 @@
         {include file="UserOrdersListTable.tpl"}
 </div>
 
+<div class="bottom-margin">
+    <form id="search-form" class="pure-form pure-form-stacked" onsubmit="ajaxPostForm('search-form','{$conf->action_root}productListPart','table'); return false;">
+        <legend>Opcje wyszukiwania</legend>
+        <fieldset>
+            <input autocomplete="off" type="text" placeholder="Nazwa produktu" name="name" value="{$searchForm->name}" /><br />
+            <button type="submit" class="pure-button pure-button-primary">Filtruj</button>
+        </fieldset>
+    </form>
+</div>	
+
 </div>
         {if $msgs->isMessage()}
             <div class="messages bottom-margin">

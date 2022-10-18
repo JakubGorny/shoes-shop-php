@@ -144,11 +144,9 @@ class ProductEditCtrl {
     }
 
     public function action_productDelete() {
-        // 1. walidacja id osoby do usuniecia
         if ($this->validateEdit()) {
 
             try {
-                // 2. usunięcie rekordu
                 App::getDB()->delete("product", [
                     "product_id" => $this->form->id
                 ]);
@@ -160,7 +158,7 @@ class ProductEditCtrl {
             }
         }
 
-        // 3. Przekierowanie na stronę listy osób
+        // 3. Przekierowanie na stronę listy produktów  
         App::getRouter()->forwardTo('productList');
     }
 

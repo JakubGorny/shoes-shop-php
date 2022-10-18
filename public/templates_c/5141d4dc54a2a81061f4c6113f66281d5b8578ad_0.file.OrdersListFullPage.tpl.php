@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-09-24 04:46:22
+/* Smarty version 4.1.0, created on 2022-10-18 20:47:23
   from 'X:\XAMPP 7.4\htdocs\shoes-shop-php\app\views\OrdersListFullPage.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_632e6f7eef9b62_78432144',
+  'unifunc' => 'content_634ef4bbbb21a6_01269086',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5141d4dc54a2a81061f4c6113f66281d5b8578ad' => 
     array (
       0 => 'X:\\XAMPP 7.4\\htdocs\\shoes-shop-php\\app\\views\\OrdersListFullPage.tpl',
-      1 => 1663987246,
+      1 => 1666118841,
       2 => 'file',
     ),
   ),
@@ -21,22 +21,22 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:OrdersListTable.tpl' => 1,
   ),
 ),false)) {
-function content_632e6f7eef9b62_78432144 (Smarty_Internal_Template $_smarty_tpl) {
+function content_634ef4bbbb21a6_01269086 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1150520162632e6f7edef7b4_75694585', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_726033993634ef4bba981b6_01372244', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'content'} */
-class Block_1150520162632e6f7edef7b4_75694585 extends Smarty_Internal_Block
+class Block_726033993634ef4bba981b6_01372244 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_1150520162632e6f7edef7b4_75694585',
+    0 => 'Block_726033993634ef4bba981b6_01372244',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -51,7 +51,15 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
         <?php $_smarty_tpl->_subTemplateRender("file:OrdersListTable.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 </div>
+Strona nr <?php echo $_smarty_tpl->tpl_vars['page']->value;?>
+ z <?php echo $_smarty_tpl->tpl_vars['count']->value;?>
 
+<a class="btn btn-secondary" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+ordersList/<?php echo $_smarty_tpl->tpl_vars['page']->value+1;?>
+">NEXT</a>
+<a class="btn btn-secondary" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+ordersList/<?php echo $_smarty_tpl->tpl_vars['page']->value-1;?>
+">PREVIOUS</a>
 </div>
         <?php if ($_smarty_tpl->tpl_vars['msgs']->value->isMessage()) {?>
             <div class="messages bottom-margin">

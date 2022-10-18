@@ -21,7 +21,7 @@ class ProductListCtrl {
     public function validate() {
         // 1. sprawdzenie, czy parametry zostały przekazane
         // - nie trzeba sprawdzać
-        $this->form->name = ParamUtils::getFromRequest('sf_name');
+        $this->form->name = ParamUtils::getFromRequest('name');
 
         // 2. sprawdzenie poprawności przekazanych parametrów
         // - nie trzeba sprawdzać
@@ -84,7 +84,7 @@ class ProductListCtrl {
     public function action_productListPart() {
         $this->load_data();
         App::getSmarty()->assign('searchForm', $this->form);
-        App::getSmarty()->assign('people', $this->records);
+        App::getSmarty()->assign('products', $this->records);
         App::getSmarty()->display('ProductListTable.tpl');
     }
 }

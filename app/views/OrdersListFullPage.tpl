@@ -8,7 +8,9 @@
     <div id="table" class="container">
         {include file="OrdersListTable.tpl"}
 </div>
-
+Strona nr {$page} z {$count}
+<a class="btn btn-secondary" href="{$conf->action_url}ordersList/{$page + 1}">NEXT</a>
+<a class="btn btn-secondary" href="{$conf->action_url}ordersList/{$page - 1}">PREVIOUS</a>
 </div>
         {if $msgs->isMessage()}
             <div class="messages bottom-margin">

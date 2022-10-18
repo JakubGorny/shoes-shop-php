@@ -2,7 +2,7 @@
 
 namespace app\controllers;
 
-use app\forms\ProductSearchForm;
+use app\forms\UserSearchForm;
 use app\forms\RoleEditForm;
 use core\App;
 use core\Utils;
@@ -17,14 +17,14 @@ class UserListCtrl {
 
     public function __construct() {
         //stworzenie potrzebnych obiektów
-        $this->form = new ProductSearchForm();
+        $this->form = new UserSearchForm();
         $this->editform = new RoleEditForm();
     }
 
     public function validate() {
         // 1. sprawdzenie, czy parametry zostały przekazane
         // - nie trzeba sprawdzać
-        $this->form->name = ParamUtils::getFromRequest('sf_name');
+        $this->form->login = ParamUtils::getFromRequest('login');
 
         // 2. sprawdzenie poprawności przekazanych parametrów
         // - nie trzeba sprawdzać
@@ -37,8 +37,8 @@ class UserListCtrl {
         $this->validate();
 
         $search_params = []; //przygotowanie pustej struktury (aby była dostępna nawet gdy nie będzie zawierała wierszy)
-        if (isset($this->form->name) && strlen($this->form->name) > 0) {
-            $search_params['name[~]'] = $this->form->name . '%'; // dodanie symbolu % zastępuje dowolny ciąg znaków na końcu
+        if (isset($this->form->login) && strlen($this->form->login) > 0) {
+            $search_params['login[~]'] = $this->form->login . '%'; // dodanie symbolu % zastępuje dowolny ciąg znaków na końcu
         }
 
 
@@ -50,9 +50,13 @@ class UserListCtrl {
         }
 
         try {
-            $this->records = App::getDB()->query(
-                "SELECT u.user_id, u.name, u.lastname, u.login , u.role 
-                FROM user u")->fetchAll();
+            $this->records = App::getDB()->select("user", [
+                "user_id",
+                "name",
+                "lastname",
+                "login",
+                "role",
+                    ], $where);
         } catch (\PDOException $e) {
             Utils::addErrorMessage('Wystąpił błąd podczas pobierania rekordów');
             if (App::getConf()->debug)

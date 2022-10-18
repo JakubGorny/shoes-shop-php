@@ -15,6 +15,8 @@ class OrderListCtrl {
     private $records; //rekordy pobrane z bazy danych
     private $editform;
     private $order_item;
+    private $page;
+    private $count;
     public function __construct() {
         //stworzenie potrzebnych obiektów
         $this->form = new ProductSearchForm();
@@ -25,16 +27,58 @@ class OrderListCtrl {
         // 1. sprawdzenie, czy parametry zostały przekazane
         // - nie trzeba sprawdzać
         $this->form->name = ParamUtils::getFromRequest('sf_name');
+        $this->page = ParamUtils::getFromCleanURL(1, true, 'Błędne wywołanie aplikacji');
+       
 
         // 2. sprawdzenie poprawności przekazanych parametrów
-        // - nie trzeba sprawdzać
+        
 
         return !App::getMessages()->isError();
     }
 
-    public function load_data() {
+    private function calculateOffset($page){
+        if($page >= 1){
+        $offset = ($page - 1) * 5;
+            return $offset;
+        }
+        return $page-1;
+    }
 
+    public function load_data() {
+        
+        
         $this->validate();
+
+        try {
+            $this->count =  App::getDB()->query(
+                "SELECT COUNT(o.order_id) AS countItems
+                FROM orders o")->fetchAll(); 
+            $this->count = intval($this->count[0]['countItems']);
+        } catch (\PDOException $e) {
+            Utils::addErrorMessage('Wystąpił błąd podczas pobierania rekordów');
+            if (App::getConf()->debug)
+                Utils::addErrorMessage($e->getMessage());
+        }
+
+        if($this->page < 1){
+            $this->page = 1;
+            $offset = 0;
+        }
+        else if($this->page > $this->count/5){
+            $true_pages = intval($this->count/5);
+                if($this->count%5 != 0){
+                    $true_pages +=1;
+                }
+            $this->page = $true_pages;
+            $offset = $this->calculateOffset($true_pages);
+        }
+        else if($this->page != ''){
+            $offset = $this->calculateOffset($this->page);
+        }
+        else{
+            $offset = 0;
+            $this->page = 1;
+        }
 
         $search_params = []; //przygotowanie pustej struktury (aby była dostępna nawet gdy nie będzie zawierała wierszy)
         if (isset($this->form->name) && strlen($this->form->name) > 0) {
@@ -49,12 +93,16 @@ class OrderListCtrl {
             $where = &$search_params;
         }
 
+        
+
         try {
+            
             $this->records = App::getDB()->query(
                 "SELECT o.order_id, u.name, u.lastname, o.order_status 
                 FROM orders o
                 INNER JOIN user u
-                ON u.user_id = o.user_id")->fetchAll();
+                ON u.user_id = o.user_id
+                LIMIT $offset, 5")->fetchAll();
         } catch (\PDOException $e) {
             Utils::addErrorMessage('Wystąpił błąd podczas pobierania rekordów');
             if (App::getConf()->debug)
@@ -85,6 +133,8 @@ class OrderListCtrl {
     }
     public function action_ordersList() {
         $this->load_data();
+        App::getSmarty()->assign('page', $this->page);
+        App::getSmarty()->assign('count', $this->count);
         App::getSmarty()->assign('order_status', $this->status_list);
         App::getSmarty()->assign('searchForm', $this->form); // dane formularza (wyszukiwania w tym wypadku)
         App::getSmarty()->assign('orders', $this->records);  // lista rekordów z bazy danych

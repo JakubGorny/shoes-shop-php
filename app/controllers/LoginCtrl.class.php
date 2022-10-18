@@ -88,11 +88,12 @@ class LoginCtrl {
         if ($this->records["0"]["role"] == 100) {
             RoleUtils::addRole('admin');
         } else  if ($this->records["0"]["role"] == 70) {
-            RoleUtils::addRole('worker');
+            RoleUtils::addRole('employe');
         }
-            else  if ($this->records["0"]["role"] == 10) {
+         else  if ($this->records["0"]["role"] == 10) {
                 RoleUtils::addRole('user');
-        } else {
+        }
+         else {
             Utils::addErrorMessage('Niepoprawny login lub hasło');
         }
 

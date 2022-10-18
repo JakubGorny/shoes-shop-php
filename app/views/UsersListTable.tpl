@@ -17,9 +17,9 @@
 		<td>
 			<form action="{$conf->action_url}roleUpdate/{$u['user_id']}" method="post">
 			<select class="form-select" aria-label="Change user role" name="role" id="">
-				<option value="100">admin</option>
-				<option value="70">employee</option>
-				<option value="10">user</option>
+				<option value=100>admin</option>
+				<option value=70>employee</option>
+				<option value=10>user</option>
 					
 			</select>
 			<button type="submit" class="btn btn-success"

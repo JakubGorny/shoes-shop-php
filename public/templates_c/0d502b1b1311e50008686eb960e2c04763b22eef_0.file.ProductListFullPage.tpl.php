@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-09-21 19:45:10
+/* Smarty version 4.1.0, created on 2022-10-09 20:13:34
   from 'X:\XAMPP 7.4\htdocs\shoes-shop-php\app\views\ProductListFullPage.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_632b4da6ae1cc6_04494462',
+  'unifunc' => 'content_63430f4e795df6_37705526',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0d502b1b1311e50008686eb960e2c04763b22eef' => 
     array (
       0 => 'X:\\XAMPP 7.4\\htdocs\\shoes-shop-php\\app\\views\\ProductListFullPage.tpl',
-      1 => 1663782146,
+      1 => 1665339209,
       2 => 'file',
     ),
   ),
@@ -21,28 +21,38 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:ProductListTable.tpl' => 1,
   ),
 ),false)) {
-function content_632b4da6ae1cc6_04494462 (Smarty_Internal_Template $_smarty_tpl) {
+function content_63430f4e795df6_37705526 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1232774668632b4da6ad6b46_66174468', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_75314114263430f4e78bcc5_25377532', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'content'} */
-class Block_1232774668632b4da6ad6b46_66174468 extends Smarty_Internal_Block
+class Block_75314114263430f4e78bcc5_25377532 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_1232774668632b4da6ad6b46_66174468',
+    0 => 'Block_75314114263430f4e78bcc5_25377532',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
-
+<div class="bottom-margin container">
+    <form id="search-form" class="pure-form pure-form-stacked" onsubmit="ajaxPostForm('search-form','<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+productListPart','table'); return false;">
+        <legend>Opcje wyszukiwania</legend>
+        <fieldset>
+            <input autocomplete="off" type="text" placeholder="Nazwa produktu" name="name" value="<?php echo $_smarty_tpl->tpl_vars['searchForm']->value->name;?>
+" /><br />
+            <button type="submit" class="pure-button pure-button-primary">Filtruj</button>
+        </fieldset>
+    </form>
+</div>	
 <div class="container">
     <div class="m-2 ">
         <a class="btn btn-success float-end m-1" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
