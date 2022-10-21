@@ -17,6 +17,8 @@ class OrderListCtrl {
     private $order_item;
     private $page;
     private $count;
+    private $true_pages;
+    const PER_PAGE = 5;
     public function __construct() {
         //stworzenie potrzebnych obiektów
         $this->form = new ProductSearchForm();
@@ -27,7 +29,7 @@ class OrderListCtrl {
         // 1. sprawdzenie, czy parametry zostały przekazane
         // - nie trzeba sprawdzać
         $this->form->name = ParamUtils::getFromRequest('sf_name');
-        $this->page = ParamUtils::getFromCleanURL(1, true, 'Błędne wywołanie aplikacji');
+        $this->page = ParamUtils::getFromCleanURL(1, false, 'Błędne wywołanie aplikacji');
        
 
         // 2. sprawdzenie poprawności przekazanych parametrów
@@ -38,10 +40,18 @@ class OrderListCtrl {
 
     private function calculateOffset($page){
         if($page >= 1){
-        $offset = ($page - 1) * 5;
+        $offset = ($page - 1) * OrderListCtrl::PER_PAGE;
             return $offset;
         }
         return $page-1;
+    }
+
+    private function calculateMaxPageNumber($count) {
+        $pages = intval($count/OrderListCtrl::PER_PAGE);
+        if($count%OrderListCtrl::PER_PAGE != 0){
+            $pages += 1;
+        }
+        return $pages;
     }
 
     public function load_data() {
@@ -64,13 +74,9 @@ class OrderListCtrl {
             $this->page = 1;
             $offset = 0;
         }
-        else if($this->page > $this->count/5){
-            $true_pages = intval($this->count/5);
-                if($this->count%5 != 0){
-                    $true_pages +=1;
-                }
-            $this->page = $true_pages;
-            $offset = $this->calculateOffset($true_pages);
+        else if($this->page > $this->count/OrderListCtrl::PER_PAGE){
+            $this->page = $this->calculateMaxPageNumber($this->count);
+            $offset = $this->calculateOffset($this->page);
         }
         else if($this->page != ''){
             $offset = $this->calculateOffset($this->page);
@@ -102,7 +108,7 @@ class OrderListCtrl {
                 FROM orders o
                 INNER JOIN user u
                 ON u.user_id = o.user_id
-                LIMIT $offset, 5")->fetchAll();
+                LIMIT $offset,".OrderListCtrl::PER_PAGE)->fetchAll();
         } catch (\PDOException $e) {
             Utils::addErrorMessage('Wystąpił błąd podczas pobierania rekordów');
             if (App::getConf()->debug)
@@ -134,7 +140,7 @@ class OrderListCtrl {
     public function action_ordersList() {
         $this->load_data();
         App::getSmarty()->assign('page', $this->page);
-        App::getSmarty()->assign('count', $this->count);
+        App::getSmarty()->assign('count', $this->calculateMaxPageNumber($this->count));
         App::getSmarty()->assign('order_status', $this->status_list);
         App::getSmarty()->assign('searchForm', $this->form); // dane formularza (wyszukiwania w tym wypadku)
         App::getSmarty()->assign('orders', $this->records);  // lista rekordów z bazy danych

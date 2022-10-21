@@ -22,7 +22,7 @@
 			<a class="btn btn-secondary" href="{$conf->action_url}productEdit/{$p['product_id']}">Edytuj</a>
 			&nbsp;
 			<a class="btn btn-danger"
-			  href= "{$conf->action_url}productDelete/{$p['product_id']}">Usuń</a>
+			  onclick= "confirmLink('{$conf->action_url}productDelete/{$p['product_id']}','Na pewno chcesz przejść na stronę główną')" ">Usuń</a>
 		</td>
 	</tr>
 {/strip}

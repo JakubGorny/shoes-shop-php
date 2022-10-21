@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-10-09 18:13:08
+/* Smarty version 4.1.0, created on 2022-10-21 22:27:33
   from 'X:\XAMPP 7.4\htdocs\shoes-shop-php\app\views\templates\main.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_6342f314e08426_96315960',
+  'unifunc' => 'content_635300b5ac4585_72916147',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '71d54799d08490116ad8a503a3756b352ea9d93d' => 
     array (
       0 => 'X:\\XAMPP 7.4\\htdocs\\shoes-shop-php\\app\\views\\templates\\main.tpl',
-      1 => 1665153848,
+      1 => 1666384045,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6342f314e08426_96315960 (Smarty_Internal_Template $_smarty_tpl) {
+function content_635300b5ac4585_72916147 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -109,7 +109,7 @@ loginView" >
         </header>
         <!-- Section-->
         <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1782079606342f314e07055_62377683', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1436655086635300b5ac3955_64595629', 'content');
 ?>
 
         <!-- Footer-->
@@ -128,12 +128,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1782079606342f314e
     </body>
 </html><?php }
 /* {block 'content'} */
-class Block_1782079606342f314e07055_62377683 extends Smarty_Internal_Block
+class Block_1436655086635300b5ac3955_64595629 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_1782079606342f314e07055_62377683',
+    0 => 'Block_1436655086635300b5ac3955_64595629',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

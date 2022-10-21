@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-09-25 19:16:55
+/* Smarty version 4.1.0, created on 2022-10-21 22:32:13
   from 'X:\XAMPP 7.4\htdocs\shoes-shop-php\app\views\ProductListTable.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_63308d0759e7e5_27182101',
+  'unifunc' => 'content_635301cd18f387_40956528',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '917b2d3e055e4b43253478074a822bedd13d6032' => 
     array (
       0 => 'X:\\XAMPP 7.4\\htdocs\\shoes-shop-php\\app\\views\\ProductListTable.tpl',
-      1 => 1664126214,
+      1 => 1666384327,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_63308d0759e7e5_27182101 (Smarty_Internal_Template $_smarty_tpl) {
+function content_635301cd18f387_40956528 (Smarty_Internal_Template $_smarty_tpl) {
 ?><table  class="table">
 <thead class="table-dark">
 	<tr>
@@ -46,9 +46,9 @@ $_smarty_tpl->tpl_vars['p']->do_else = false;
 </td><td><?php echo $_smarty_tpl->tpl_vars['p']->value["price"];?>
 </td><td><a class="btn btn-secondary" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 productEdit/<?php echo $_smarty_tpl->tpl_vars['p']->value['product_id'];?>
-">Edytuj</a>&nbsp;<a class="btn btn-danger" href= "<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+">Edytuj</a>&nbsp;<a class="btn btn-danger" onclick= "confirmLink('<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 productDelete/<?php echo $_smarty_tpl->tpl_vars['p']->value['product_id'];?>
-">Usuń</a></td></tr>
+','Na pewno chcesz przejść na stronę główną')" ">Usuń</a></td></tr>
 <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>

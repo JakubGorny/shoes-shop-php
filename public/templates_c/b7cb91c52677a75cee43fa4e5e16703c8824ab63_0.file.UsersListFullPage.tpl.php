@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-10-09 18:45:19
+/* Smarty version 4.1.0, created on 2022-10-21 21:25:59
   from 'X:\XAMPP 7.4\htdocs\shoes-shop-php\app\views\UsersListFullPage.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_6342fa9fa08791_64573706',
+  'unifunc' => 'content_6352f247159325_52971400',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b7cb91c52677a75cee43fa4e5e16703c8824ab63' => 
     array (
       0 => 'X:\\XAMPP 7.4\\htdocs\\shoes-shop-php\\app\\views\\UsersListFullPage.tpl',
-      1 => 1665333907,
+      1 => 1666380323,
       2 => 'file',
     ),
   ),
@@ -21,36 +21,36 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:UsersListTable.tpl' => 1,
   ),
 ),false)) {
-function content_6342fa9fa08791_64573706 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6352f247159325_52971400 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_13694007486342fa9f9fee82_60311256', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_306069846352f24714d280_20651489', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'content'} */
-class Block_13694007486342fa9f9fee82_60311256 extends Smarty_Internal_Block
+class Block_306069846352f24714d280_20651489 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_13694007486342fa9f9fee82_60311256',
+    0 => 'Block_306069846352f24714d280_20651489',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 
-<div class="bottom-margin">
-    <form id="search-form" class="pure-form pure-form-stacked" onsubmit="ajaxPostForm('search-form','<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+<div class="container d-flex justify-content-start">
+    <form id="search-form" class="m-3"  onsubmit="ajaxPostForm('search-form','<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 usersListPart','table'); return false;">
-        <legend>Opcje wyszukiwania</legend>
+        <legend class="form-label">Opcje wyszukiwania</legend>
         <fieldset>
-            <input autocomplete="off" type="text" placeholder="Nazwa użytkownika" name="login" value="<?php echo $_smarty_tpl->tpl_vars['searchForm']->value->login;?>
+            <input autocomplete="off" class="form-control" type="text" placeholder="Nazwa użytkownika" name="login" value="<?php echo $_smarty_tpl->tpl_vars['searchForm']->value->login;?>
 " /><br />
-            <button type="submit" class="pure-button pure-button-primary">Filtruj</button>
+            <button type="submit" class="btn bg-dark text-light">Filtruj</button>
         </fieldset>
     </form>
 </div>	
@@ -63,7 +63,24 @@ usersListPart','table'); return false;">
         <?php $_smarty_tpl->_subTemplateRender("file:UsersListTable.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 </div>
-
+<div class="d-flex justify-content-center align-items-center flex-column m-2">
+        <span class="badge bg-light text-dark">Strona <?php echo $_smarty_tpl->tpl_vars['page']->value;?>
+ z <?php echo $_smarty_tpl->tpl_vars['pages']->value;?>
+</span>
+        <div>   
+            <?php if ($_smarty_tpl->tpl_vars['page']->value > 1) {?>
+            <a class="btn btn-secondary" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+usersList/<?php echo $_smarty_tpl->tpl_vars['page']->value-1;?>
+">PREVIOUS</a>
+            <?php }?>
+            <?php if ($_smarty_tpl->tpl_vars['page']->value < $_smarty_tpl->tpl_vars['pages']->value) {?>
+            <a class="btn btn-secondary" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+usersList/<?php echo $_smarty_tpl->tpl_vars['page']->value+1;?>
+">NEXT</a>
+            <?php }?>
+        </div>
+    </div>
+</div>
 </div>
         <?php if ($_smarty_tpl->tpl_vars['msgs']->value->isMessage()) {?>
             <div class="messages bottom-margin">

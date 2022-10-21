@@ -43,23 +43,7 @@ class LoginCtrl {
         $where = ["login" => $this->form->login, "password" => $this->form->pass];
         //wykonanie zapytania
         //wykonanie zapytania
-
-//        try {
-//            $this->records = App::getDB()->select("users", [
-//                "[><]users_role" => ["user_id" => "client_id"]
-//            ], [
-//                "[><]role" => ["role_id" => "role_id"]
-//            ],[
-//                "client_id",
-//                "login",
-//                "password",
-//                "name",
-//            ], $where);
-//        } catch (\PDOException $e) {
-//            Utils::addErrorMessage('Wystąpił błąd podczas pobierania rekordów');
-//            if (App::getConf()->debug)
-//                Utils::addErrorMessage($e->getMessage());
-//        }
+ 
         try {
             $this->records = App::getDB()->query("
                 SELECT *
